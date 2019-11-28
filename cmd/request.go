@@ -54,7 +54,7 @@ var (
 )
 
 func init() {
-	requestCmd.Flags().Int32P("talk-to-user-id", "t", 0, "Talk to user id (required)")
+	requestCmd.Flags().Int32P("talk-to-user-id", "u", 0, "Talk to user id (required)")
 	_ = requestCmd.MarkFlagRequired("talk-to-user-id")
 	requestCmd.Flags().Int64P("chat-id", "C", 0, `Chat id. if omitted, "talk-to-user-id" will be used`)
 	rootCmd.AddCommand(requestCmd)
