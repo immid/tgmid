@@ -1,0 +1,38 @@
+[tdlib]
+api_id      = "your_api_id"
+api_hash    = "your_api_hash"
+language    = "en"
+test_mode   = false
+data_dir    = "./data"
+phone       = ""
+
+# Log file, can be a filename, "stderr" or "stdout"
+log_file    = "tgmid.log"
+
+# TdLib proxy, example:
+# socks5:127.0.0.1:7070
+# http:192.168.1.2:8080
+# mtproto:12.34.56.78:1234
+proxy       = ""
+proxy_user  = ""
+proxy_pass  = ""
+
+# TdLib verbosity
+# 0 - fatal errors
+# 1 - errors
+# 2 - warnings and debug warnings
+# 3 - informational
+# 4 - debug
+# 5 - verbose debug
+# greater than 5 and up to 1023 can be used to enable even more logging.
+verbosity   = 3
+
+[processor]
+cmd         = "echo"
+
+[rpc]
+# The `socket_type` must be "tcp", "tcp4", "tcp6", "unix" or "unixpacket".
+socket_type = "unix"
+
+# The `address` can be like "127.0.0.1:1234" or "[::1]:1234" or a filename for unix socket
+address     = "./data/rpc.sock"
