@@ -17,11 +17,11 @@ var (
 			default:
 				_, _ = fmt.Fprintln(os.Stderr, "Unsupported shell type", shellType)
 			case "bash":
-				_ = cmd.GenBashCompletion(os.Stdout)
+				_ = rootCmd.GenBashCompletion(os.Stdout)
 			case "zsh":
-				_ = cmd.GenZshCompletion(os.Stdout)
+				_ = rootCmd.GenZshCompletion(os.Stdout)
 			case "powershell":
-				_ = cmd.GenPowerShellCompletion(os.Stdout)
+				_ = rootCmd.GenPowerShellCompletion(os.Stdout)
 			}
 		},
 	}
