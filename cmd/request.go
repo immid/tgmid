@@ -29,6 +29,7 @@ var (
 			if chatId == 0 {
 				chatId = int64(talkTo)
 			}
+			noResponse, _ := cmd.Flags().GetBool("no-response")
 			rpcClient := tgRpc.NewClient()
 			defer rpcClient.Close()
 			jsonClient := jsonrpc.NewClient(rpcClient)
@@ -37,6 +38,7 @@ var (
 				ChatId:       chatId,
 				TalkToUserId: talkTo,
 				Content:      args[0],
+				NoResponse:   noResponse,
 			}
 			requestJson, err := json.Marshal(request)
 			if err != nil {
@@ -57,5 +59,6 @@ func init() {
 	requestCmd.Flags().Int32P("talk-to-user-id", "u", 0, "Talk to user id (required)")
 	_ = requestCmd.MarkFlagRequired("talk-to-user-id")
 	requestCmd.Flags().Int64P("chat-id", "C", 0, `Chat id. if omitted, "talk-to-user-id" will be used`)
+	requestCmd.Flags().BoolP("no-response", "n", false, "Don't wait for response if set")
 	rootCmd.AddCommand(requestCmd)
 }
